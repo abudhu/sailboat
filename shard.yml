@@ -1,0 +1,13 @@
+name: sailboat
+version: 0.1.0
+
+authors:
+  - Amit Budhu <abudhu@gmail.com>
+
+targets:
+  sailboat:
+    main: src/sailboat.cr
+
+crystal: 0.22.0
+
+license: MIT
