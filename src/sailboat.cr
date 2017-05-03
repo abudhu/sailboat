@@ -1,5 +1,3 @@
-require "./sailboat/*"
+require "./sailboat/cli/*"
 
-module Sailboat
-  # TODO Put your code here
-end
+Sailboat::CLI.run

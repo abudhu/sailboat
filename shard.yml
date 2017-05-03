@@ -11,3 +11,9 @@ targets:
 crystal: 0.22.0
 
 license: MIT
+
+dependencies:
+  admiral:
+    github: jwaldrip/admiral.cr
+  ocean_kit:
+    github: abudhu/ocean_kit

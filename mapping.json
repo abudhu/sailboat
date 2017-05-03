@@ -1,0 +1,18 @@
+{
+  "certificates": [],
+  "domains": [],
+  "droplets": [
+    "captain-doc"
+  ],
+  "floating_ips": [
+    "138.68.200.147"
+  ],
+  "user_images": [],
+  "load_balancers": [],
+  "snapshots": [],
+  "sshkeys": [
+    "droplet",
+    "fedora_vm"
+  ],
+  "volumes": []
+}
