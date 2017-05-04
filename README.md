@@ -21,7 +21,7 @@ can create an Autoscaling groups for use in DigitalOcean loadbalancers.
 
 ```bash
 git clone https://github.com/abudhu/sailboat/ && cd sailboat
-crystal build src/guardian.cr --release
+crystal build src/sailboat.cr --release
 ```
 > **Note:** You will need to add `sailboat` to your systems PATH
 
@@ -56,24 +56,21 @@ Digital Ocean Token: <DIGITAL_OCEAN_TOKEN>
 ### Configure
 Configures Sailboats default or named profiles.  These profiles can be used with other commands to query different DigitalOcean accounts
 
-### Map
+**Map**
 Generates a JSON map of an existing DigitaOcean environment.
 
-### Create
+**Create**
 Creates a DigitalOcean environment based upon an existing Map.
 
-### Destroy
+**Destroy**
 Destroys a DigitalOcean environment based upon an existing Map.
 
-### Fleet
+**Fleet**
 Generate an Autoscaling Group for a Droplet and attach it to an existing Loadbalancer
 
 ## Configure
 #### Flags
-Configure allows the following Flags
-| Flag | Description | Example                                             | Required |
-|-----------|------------------------|-------------------------------------|:--------:|
-| --profile | Create a named profile | sailboat configure --profile <name> |no        |
+Configure allows the following Flags:
 
 ## Map
 
