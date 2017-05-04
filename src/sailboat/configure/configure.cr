@@ -14,10 +14,10 @@ module Sailboat
       cf = Sailboat::ConfigureFunctions.new
 
       if flags.profile.nil?
-        puts "⛵ Welcome aboard! Let's setup your default profile.".colorize.mode(:bold)
+        puts "⛵ Welcome aboard! Lets setup your default profile.".colorize.mode(:bold)
         profile_name = "default"
       else
-        puts "⛵ Welcome aboard! Let's setup <#{flags.profile}> profile.".colorize.mode(:bold)
+        puts "⛵ Welcome aboard! Lets setup <#{flags.profile}> profile.".colorize.mode(:bold)
         profile_name = flags.profile
       end
 

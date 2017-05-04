@@ -27,6 +27,8 @@ module Sailboat
     end
 
     private def configure_check_path(path, type)
+      # URGENT: This doesn't work on Mac for some reason
+      # Fix It Soon
       case type
       when "folder"
         unless Dir.exists? path

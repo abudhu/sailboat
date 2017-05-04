@@ -5,6 +5,25 @@ module Sailboat
       JSON.parse(client.{{name}}.{{command}})["{{name}}"]
     end
 
+    def check_cache
+      cache_path = "#{ENV["HOME"]}/.sailboat/digitalocean_cache.json"
+      if File.exists?(cache_path)
+        cache_time = File.lstat(cache_path).ctime
+        span = (Time.now - cache_time)
+        if span.days.to_i >= 3
+          return false
+        else
+          return true
+        end
+      end
+
+    end
+
+    def get_cache
+      cache_path = "#{ENV["HOME"]}/.sailboat/digitalocean_cache.json"
+      JSON.parse(File.open(cache_path))
+    end
+
     def get_info(client)
       complete_json = {} of String => JSON::Any
       complete_json["certificates"] =  client_get certificates, all
@@ -16,8 +35,9 @@ module Sailboat
       complete_json["snapshots"] =  client_get snapshots, all
       complete_json["ssh_keys"] =  client_get ssh_keys, all
       complete_json["volumes"] =  client_get volumes, all
+      File.write("#{ENV["HOME"]}/.sailboat/digitalocean_cache.json", complete_json.to_pretty_json)
       complete_json
-      #File.write("/home/amit/Documents/mapping.json", complete_json.to_pretty_json)
+
     end
   end
 end

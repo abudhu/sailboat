@@ -1,3 +1,4 @@
+require "colorize"
 require "json"
 require "ocean_kit"
 require "./*"
@@ -5,21 +6,21 @@ require "./*"
 module Sailboat
   class MapShort < Sailboat::MapFunctions
 
-    def initialize(client : OceanKit::Client, output_loc : String)
+    def initialize(client : OceanKit::Client, output_loc : String, refresh : Bool)
       @client = client
       @output_loc = output_loc
+      @refresh = refresh
     end
 
     def run
-      infrastructure_map = get_info(client: @client)
-      # So what we want to do is, generate that mapping once.  Then
-      # place it in the .sailboat.
-      # then we need to expire that file, so its a local cache
-      # read from the cache.  Which means you need a --refresh flag to
-      # invalidate the cache
 
-      #puts infrastructure_map
-      #puts typeof(infrastructure_map) # => Hash(String, JSON::Any)
+      if check_cache == false || @refresh == true
+        puts "⛵ Generating cache copy of map...".colorize.mode(:dim)
+        infrastructure_map = get_info(client: @client)
+      else
+        puts "⛵ Using cache copy of map".colorize.mode(:dim)
+        infrastructure_map = get_cache
+      end
 
       json_string = JSON.build do |json|
         json.object do
@@ -90,7 +91,7 @@ module Sailboat
       end
 
       File.write(@output_loc, JSON.parse(json_string).to_pretty_json)
-
+      puts "⛵ Success! We have placed your map at #{@output_loc}"
 
     end
   end

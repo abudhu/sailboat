@@ -1,19 +1,87 @@
-# sailboat
+# ⛵ Sailboat
 
-TODO: Write a description here
+Sailboat automatically generates a map of a DigitalOcean environment, making it
+easier for individuals to re-create their environments.  Further, Sailboat
+can create an Autoscaling groups for use in DigitalOcean loadbalancers.
+
+> [Installation](#installation) |
+  [Usage](#usage) |
+  [Examples](#examples)
 
 ## Installation
 
-TODO: Write installation instructions here
+#### Option 1: Download the Installer Bash Script and execute:
+
+  ```bash
+  wget https://github.com/abudhu/sailboat/installer.sh
+  ./installer.sh
+  ```
+
+#### Option 2: Build from Source
+
+```bash
+git clone https://github.com/abudhu/sailboat/ && cd sailboat
+crystal build src/guardian.cr --release
+```
+> **Note:** You will need to add `sailboat` to your systems PATH
 
 ## Usage
 
-TODO: Write usage instructions here
+> [Getting Started](#getting-started) |
+  [Commands](#commands) |
+  [Configure](#configure) |
+  [Map](#map)  |
+  [Create](#create) |
+  [Delete](#delete) |
+  [Fleet](#fleet)
 
-## Development
+## Getting Started
+After installing Sailboat you will need to configure a default profile.  To do this run:
 
-TODO: Write development instructions here
+```bash
+sailboat configure
+```
 
+You will be prompted with a Greeting.  You will need to enter a DigitalOcean API Token.
+
+```bash
+⛵ Welcome aboard! Lets setup your default profile.
+Digital Ocean Token: <DIGITAL_OCEAN_TOKEN>
+```
+> **Note:** This will set the `default` Profile.  To add named profiles, please see the [Configure](#configure) section for more details.
+
+
+## Commands
+
+### Configure
+Configures Sailboats default or named profiles.  These profiles can be used with other commands to query different DigitalOcean accounts
+
+### Map
+Generates a JSON map of an existing DigitaOcean environment.
+
+### Create
+Creates a DigitalOcean environment based upon an existing Map.
+
+### Destroy
+Destroys a DigitalOcean environment based upon an existing Map.
+
+### Fleet
+Generate an Autoscaling Group for a Droplet and attach it to an existing Loadbalancer
+
+## Configure
+#### Flags
+Configure allows the following Flags
+| Flag | Description | Example                                             | Required |
+|-----------|------------------------|-------------------------------------|:--------:|
+| --profile | Create a named profile | sailboat configure --profile <name> |no        |
+
+## Map
+
+## Create
+
+## Delete
+
+## Fleet
 ## Contributing
 
 1. Fork it ( https://github.com/[your-github-name]/sailboat/fork )
@@ -24,4 +92,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Amit Budhu - creator, maintainer
+- [[abudhu]](https://github.com/abudhu]) Amit Budhu - creator, maintainer

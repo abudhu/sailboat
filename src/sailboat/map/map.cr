@@ -17,6 +17,11 @@ module Sailboat
       long: detailed,
       short: d,
       required: false
+    define_flag refresh : Bool,
+      description: "Refresh local cache copy of your Digital Ocean Env",
+      long: refresh,
+      short: r,
+      required: false
     define_flag output,
       description: "Output location of the map file",
       long: output,
@@ -31,9 +36,13 @@ module Sailboat
 
       ocean_kit = OceanKit::Client.new(cf.configure_retrieve_token flags.profile)
 
+      puts "⛵ Sailboat charting new seas..."
       if flags.detailed.nil?
-        map_short = Sailboat::MapShort.new(client: ocean_kit, output_loc: flags.output)
+        map_short = Sailboat::MapShort.new(client: ocean_kit, output_loc: flags.output, refresh: flags.refresh)
         map_short.run
+      else
+        map_detailed = Sailboat::MapDetailed.new(client: ocean_kit, output_loc: flags.output)
+        map_detailed.run
       end
 
 
