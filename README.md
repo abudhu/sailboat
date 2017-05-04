@@ -53,7 +53,7 @@ Digital Ocean Token: <DIGITAL_OCEAN_TOKEN>
 
 ## Commands
 
-### Configure
+**Configure**
 Configures Sailboats default or named profiles.  These profiles can be used with other commands to query different DigitalOcean accounts
 
 **Map**
