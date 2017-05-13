@@ -18,7 +18,7 @@ module Sailboat
 
     # Create an Autoscaling Group for a Droplet
     # You must run this as a Background task
-    # register_sub_command fleet, Sailboat::Fleet
+    register_sub_command fleet, Sailboat::Fleet
 
   end
 end

@@ -66,7 +66,7 @@ Creates a DigitalOcean environment based upon an existing Map.
 Destroys a DigitalOcean environment based upon an existing Map.
 
 **Fleet**
-Generate an Autoscaling Group for a Droplet and attach it to an existing Loadbalancer
+Generate an Autoscaling Group for a Droplet.
 
 ## Configure
 #### Flags
