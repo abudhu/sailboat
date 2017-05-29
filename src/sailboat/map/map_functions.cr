@@ -15,6 +15,8 @@ module Sailboat
         else
           return true
         end
+      else
+        return false
       end
 
     end

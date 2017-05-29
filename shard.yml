@@ -16,4 +16,4 @@ dependencies:
   admiral:
     github: jwaldrip/admiral.cr
   ocean_kit:
-    github: abudhu/ocean_kit
+    github: osfx/ocean_kit

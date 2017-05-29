@@ -5,10 +5,6 @@ shards:
     version: 1.1.5
 
   ocean_kit:
-    github: abudhu/ocean_kit
-    commit: eb753215ea5174e643f0eb59eee0fe14fd024997
-
-  toml:
-    github: manastech/crystal-toml
-    commit: 1ff4ad9ff3cdfaa97e17b69d6d86ab608084c39f
+    github: osfx/ocean_kit
+    commit: 2541e460080d9bdde755c3c83fe0d66eda8015e9
 

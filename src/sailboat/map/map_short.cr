@@ -10,11 +10,14 @@ module Sailboat
       @client = client
       @output_loc = output_loc
       @refresh = refresh
+      @mf = Sailboat::MapFunctions.new()
     end
 
     def run
 
-      if check_cache == false || @refresh == true
+      puts @mf.check_cache
+
+      if @mf.check_cache == false || @refresh == true
         puts "⛵ Generating cache copy of map...".colorize.mode(:dim)
         infrastructure_map = get_info(client: @client)
       else

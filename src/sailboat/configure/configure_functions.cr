@@ -7,10 +7,11 @@ module Sailboat
       @config_folder_path = "#{ENV["HOME"]}/.sailboat"
       @config_file_path = "#{@config_folder_path}/config"
       @json_file = {} of String => JSON::Type
-      @json_file = JSON.parse(File.read(@config_file_path)).as_h
 
       configure_check_path(path: @config_folder_path, type: "folder")
       configure_check_path(path: @config_file_path, type: "file")
+
+      @json_file = JSON.parse(File.read(@config_file_path)).as_h
     end
 
     def configure_add_profile(profile_name, profile_token)
